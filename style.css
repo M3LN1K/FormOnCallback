@@ -1,172 +1,300 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', Arial, sans-serif;
-}
+/* Подключаю шрифтов */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400&display=swap');
 
 body {
     background-color: #f5f5f5;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    display: block;
     min-height: 100vh;
+    position: relative;
+    margin: 0;
 }
 
-.form-container {
-    max-width: 600px;
-    width: 100%;
-    background-color: #fff;
+#form-container {
+    position: absolute;
+    width: 1024px;
+    height: 631.8px;
+    transform: rotate(0deg);
+    opacity: 1;
+    top: 101.24px;
+    left: 722.89px;
+    background: #FFFFFF;
+    box-shadow: 
+        0px 2.77px 2.21px 0px rgba(0, 0, 0, 0.02),
+        0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03),
+        0px 12.52px 10.02px 0px rgba(0, 0, 0, 0.04),
+        0px 22.34px 17.87px 0px rgba(0, 0, 0, 0.04),
+        0px 41.78px 33.42px 0px rgba(0, 0, 0, 0.05),
+        0px 100px 80px 0px rgba(0, 0, 0, 0.07);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
     color: #000;
+    margin: 0;
+    padding: 0;
 }
 
 .form-title {
-    font-size: 24px;
-    margin-bottom: 25px;
+    position: absolute;
+    width: 100%;
+    height: 47.88px;
+    transform: rotate(0deg);
+    opacity: 1;
+    top: 38.43px;
+    left: 0;
+    padding: 0 135.89px;
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 64px;
+    line-height: 85px;
+    letter-spacing: 1px;
     text-align: center;
+    vertical-align: middle;
     color: #000;
-    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
+/* Контейнеры для полей ввода */
 .form-group {
-    margin-bottom: 25px;
+    position: absolute;
+    width: 456px;
+    left: 284px;
+    height: auto; /* Автоматическая высота для учета ошибок */
+}
+
+/* Позиционирование каждого поля */
+#name-group {
+    top: 121.32px;
+    height: 70px; /* Высота с учетом сообщения об ошибке */
+}
+
+#phone-group {
+    top: 198.32px;
+    height: 70px;
+}
+
+#email-group {
+    top: 275.32px; /* Смещаем ниже из-за увеличенной высоты предыдущих полей */
+    height: 70px;
+}
+
+#comment-group {
+    top: 352.32px; /* Поле комментария после email */
+    height: 100px; /* Увеличиваем высоту для textarea */
+}
+
+/* Контейнер для поля с иконками */
+.input-wrapper {
     position: relative;
+    width: 100%;
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #000;
-}
-
+/* Стили для полей ввода */
 .form-input {
     width: 100%;
     padding: 12px 40px 12px 0;
     border: none;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #000;
     font-size: 16px;
     transition: all 0.3s;
     background-color: transparent;
     color: #000;
     text-transform: lowercase;
     outline: none;
+    font-family: 'PT Astra Sans', Arial, sans-serif; 
+    font-size: 24px;
+    line-height: 42px;
+    position: relative;
 }
 
-.form-input:focus {
+.form-textarea {
+    width: 100%;
+    padding: 12px 40px 12px 0;
+    border: none;
+    border-bottom: 1px solid #000;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: #000;
+    text-transform: lowercase;
+    outline: none;
+    font-family: 'PT Astra Sans', Arial, sans-serif; 
+    font-size: 24px;
+    min-height: 48.9px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-input:hover,
+.form-textarea:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.form-input:focus,
+.form-textarea:focus {
     border-bottom-color: #000;
     font-weight: bold;
     color: #000;
 }
 
-.form-input::placeholder {
+.form-input::placeholder,
+.form-textarea::placeholder {
     color: #888;
     text-transform: none;
+    font-family: 'PT Astra Sans', Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 42px;
+    letter-spacing: 0px;
+    vertical-align: middle;
 }
 
-.form-textarea {
-    min-height: 80px;
-    resize: vertical;
-}
-
-/* Иконки валидации */
-.validation-icon {
+/* Стили для иконок валидации (ТОЛЬКО для email) */
+.input-wrapper .validation-icon {
     position: absolute;
-    right: 10px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.check-icon {
-    color: #00cc00;
-}
-
-.cross-icon {
-    color: #ff1493;
-}
-
-/* Стили для кастомного чекбокса */
-.checkbox-group {
+    width: 24px;
+    height: 24px;
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
 }
 
+/* Черная галочка */
+.input-wrapper .checkmark {
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Ярко-розовый крестик */
+.input-wrapper .cross {
+    color: #ff1493;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Стили для поля email при ошибке */
+#email.field-error {
+    color: #ff1493 !important;
+    border-bottom-color: #ff1493 !important;
+}
+
+#email.field-error::placeholder {
+    color: #ff1493 !important;
+}
+
+/* Стили для других полей при ошибке */
+.form-input.field-error {
+    color: #ff1493 !important;
+    border-bottom-color: #ff1493 !important;
+}
+
+.form-input.field-error::placeholder {
+    color: #ff1493 !important;
+}
+
+/* Контейнер для чекбокса */
+#checkbox-group {
+    position: absolute;
+    width: 415.127px;
+    height: 35px; /* Увеличиваем высоту для учета ошибки */
+    opacity: 1;
+    top: 462px; /* Чекбокс после комментария */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+/* Скрытый нативный чекбокс */
 .checkbox-input {
     position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
+    width: 25.988px;
+    height: 25.988px;
+    cursor: pointer;
+    z-index: 1;
 }
 
+/* Кастомный чекбокс */
 .custom-checkbox {
-    position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
+    width: 25.988px;
+    height: 25.988px;
     border: 2px solid #ddd;
     border-radius: 3px;
-    margin-right: 10px;
-    margin-top: 1px;
-    transition: all 0.3s;
     cursor: pointer;
     background-color: white;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    position: relative;
+    margin-right: 10px;
 }
 
+/* Галочка */
+.custom-checkbox::after {
+    content: '';
+    position: absolute;
+    width: 14.513px;
+    height: 8.875px;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transition: opacity 0.3s;
+}
+
+/* Активированные состояния */
 .checkbox-input:checked + .custom-checkbox {
-    background-color: white;
     border-color: #000;
 }
 
 .checkbox-input:checked + .custom-checkbox::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 6px;
-    height: 10px;
-    border: solid #000;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    opacity: 1;
 }
 
-.checkbox-input:focus + .custom-checkbox {
+.checkbox-input:hover + .custom-checkbox {
     border-color: #000;
 }
 
-/* Отключаем клик по тексту */
+/* Текст */
 .checkbox-label {
-    font-size: 14px;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0;
     color: #000;
-    cursor: default;
-    margin-top: 1px;
-    user-select: none;
-}
-
-.checkbox-label a {
-    color: #000;
-    text-decoration: underline;
     cursor: pointer;
+    white-space: nowrap;
 }
 
-.checkbox-label a:hover {
-    text-decoration: none;
-}
-
-.submit-btn-container {
+/* Кнопка отправки */
+#submit-btn-container {
+    position: absolute;
+    top: 510px; /* Кнопка после чекбокса */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .submit-btn {
@@ -175,11 +303,14 @@ body {
     border: 2px solid #000;
     padding: 12px 40px;
     font-size: 16px;
-    border-radius: 4px;
     cursor: pointer;
-    width: 50%;
+    width: 207.27px;
+    height: 66px;
     transition: all 0.3s;
     font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -211,12 +342,19 @@ body {
     cursor: not-allowed;
 }
 
+/* Сообщения статуса */
 .status-message {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 4px;
     text-align: center;
     display: none;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 1000;
 }
 
 .status-success {
@@ -237,26 +375,33 @@ body {
     border: 1px solid #bee5eb;
 }
 
-/* Исправленные стили для ошибок */
+/* Стили для ошибок */
+.error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: #ff1493;
+    font-size: 14px;
+    font-family: 'PT Astra Sans', Arial, sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+    display: none;
+}
+
+#agreementError {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
 .field-error {
     border-bottom-color: #ff1493 !important;
     color: #ff1493 !important;
 }
 
-.checkbox-error .custom-checkbox {
-    border-color: #ff1493;
-}
-
-.error-message {
-    color: #ff1493;
-    font-size: 14px;
-    margin-top: 5px;
-    display: none;
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-}
-
+/* Стили для активного поля и преобразования текста */
 .input-active {
     font-weight: bold;
 }

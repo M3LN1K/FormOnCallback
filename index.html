@@ -4,58 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма обратного звонка</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
+    <div id="form-container">
         <h2 class="form-title">Заявка на обратный звонок</h2>
         
         <div id="statusMessage" class="status-message"></div>
         
         <form id="callbackForm">
-            <div class="form-group">
-                <label for="name" class="form-label">Ваше имя</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Введите ваше имя" required>
+            <!-- Поле имени -->
+            <div class="form-group" id="name-group">
+                <div class="input-wrapper">
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Ваше имя" required>
+                </div>
                 <div id="nameError" class="error-message">Пожалуйста, введите ваше имя</div>
-                <svg class="validation-icon check-icon" id="nameCheck" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                <svg class="validation-icon cross-icon" id="nameCross" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
             </div>
             
-            <div class="form-group">
-                <label for="phone" class="form-label">Телефон</label>
-                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+7 (999) 999-99-99">
+            <!-- Поле телефона -->
+            <div class="form-group" id="phone-group">
+                <div class="input-wrapper">
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Телефон">
+                </div>
                 <div id="phoneError" class="error-message">Пожалуйста, введите корректный номер телефона</div>
-                <svg class="validation-icon check-icon" id="phoneCheck" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                <svg class="validation-icon cross-icon" id="phoneCross" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
             </div>
             
-            <div class="form-group">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.ru">
+            <!-- Поле email -->
+            <div class="form-group" id="email-group">
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" class="form-input" placeholder="E-mail">
+                    <!-- Иконки валидации ТОЛЬКО для email -->
+                    <div class="validation-icon checkmark">✓</div>
+                    <div class="validation-icon cross">✗</div>
+                </div>
                 <div id="emailError" class="error-message">Пожалуйста, введите корректный email</div>
-                <svg class="validation-icon check-icon" id="emailCheck" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-                <svg class="validation-icon cross-icon" id="emailCross" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
             </div>
             
-            <div class="form-group">
-                <label for="comment" class="form-label">Комментарий</label>
-                <textarea id="comment" name="comment" class="form-input form-textarea" placeholder="Ваш комментарий"></textarea>
+            <!-- Поле комментария -->
+            <div class="form-group" id="comment-group">
+                <div class="input-wrapper">
+                    <textarea id="comment" name="comment" class="form-textarea" placeholder="Комментарий"></textarea>
+                </div>
             </div>
             
-            <div class="checkbox-group">
+            <!-- Чекбокс согласия -->
+            <div id="checkbox-group">
                 <input type="checkbox" id="agreement" name="agreement" class="checkbox-input" required>
                 <span class="custom-checkbox"></span>
                 <span class="checkbox-label">
@@ -63,8 +56,9 @@
                 </span>
                 <div id="agreementError" class="error-message">Необходимо ваше согласие</div>
             </div>
-            
-            <div class="submit-btn-container">
+                
+            <!-- Кнопка отправки -->
+            <div id="submit-btn-container">
                 <button type="submit" class="submit-btn" disabled>ОТПРАВИТЬ</button>
             </div>
         </form>
