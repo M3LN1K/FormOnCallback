@@ -42,7 +42,7 @@ body {
     opacity: 1;
     top: 38.43px;
     left: 0;
-    padding: 0 135.89px;
+    padding: 0;
     font-family: 'Cormorant', serif;
     font-weight: 600;
     font-style: normal;
@@ -64,28 +64,28 @@ body {
     position: absolute;
     width: 456px;
     left: 284px;
-    height: auto; /* Автоматическая высота для учета ошибок */
+    
 }
 
 /* Позиционирование каждого поля */
 #name-group {
     top: 121.32px;
-    height: 70px; /* Высота с учетом сообщения об ошибке */
+    height: 48.9px; 
 }
 
 #phone-group {
     top: 198.32px;
-    height: 70px;
+    height: 48.9px;
 }
 
 #email-group {
-    top: 275.32px; /* Смещаем ниже из-за увеличенной высоты предыдущих полей */
-    height: 70px;
+    top: 275.32px; 
+    height: 48.9px;
 }
 
 #comment-group {
-    top: 352.32px; /* Поле комментария после email */
-    height: 100px; /* Увеличиваем высоту для textarea */
+    top: 352.32px; 
+    height: 48.9px; 
 }
 
 /* Контейнер для поля с иконками */
@@ -96,8 +96,8 @@ body {
 
 /* Стили для полей ввода */
 .form-input {
-    width: 100%;
-    padding: 12px 40px 12px 0;
+    width: 456px;
+    padding: 0;
     border: none;
     border-bottom: 1px solid #000;
     font-size: 16px;
@@ -113,8 +113,8 @@ body {
 }
 
 .form-textarea {
-    width: 100%;
-    padding: 12px 40px 12px 0;
+    width: 456px;
+    padding: 0;
     border: none;
     border-bottom: 1px solid #000;
     transition: all 0.3s;
@@ -129,8 +129,8 @@ body {
     line-height: 1.5;
 }
 
-.form-input:hover,
-.form-textarea:hover {
+.form-input:hover::placeholder,
+.form-textarea:hover::placeholder {
     color: #000;
     border-bottom-color: #000;
 }
@@ -155,7 +155,7 @@ body {
     vertical-align: middle;
 }
 
-/* Стили для иконок валидации (ТОЛЬКО для email) */
+/* Стили для иконок валидации  */
 .input-wrapper .validation-icon {
     position: absolute;
     right: 0;
@@ -301,11 +301,12 @@ body {
     background-color: #000;
     color: white;
     border: 2px solid #000;
-    padding: 12px 40px;
-    font-size: 16px;
+    padding: 0;
+    font-size: 20px;
     cursor: pointer;
     width: 207.27px;
     height: 66px;
+    line-height: 42px;
     transition: all 0.3s;
     font-weight: normal;
     display: flex;
